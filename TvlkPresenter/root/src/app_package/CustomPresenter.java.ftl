@@ -4,7 +4,7 @@ import android.databinding.Bindable;
 import org.greenfroyo.androidmvp_bind.app._core.BaseViewModel;
 
 
-public class ${vmClass} extends ${pBase}<${vm}>{
+public class ${vmClass} extends ${pBase}<${vm}> <#if><#/if>{
 
     @Override
     public void onCreate(Bundle presenterState) {
