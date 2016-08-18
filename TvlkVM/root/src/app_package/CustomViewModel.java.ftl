@@ -10,38 +10,41 @@ import ${applicationPackage}.BR;
  * TODO: document your custom view model class.
  */
 public class ${vmClass} extends BaseViewModel{
-    <#assign bindAttr=vmBindableAttr?split("; ")/>
-    <#assign nonBindAttr=vmNonBindableAttr?split("; ")/>
+    <#assign bindAttr=vmBindableAttr?split(";")/>
+    <#assign nonBindAttr=vmNonBindableAttr?split(";")/>
 
     <#list bindAttr as attr>
-        protected ${attr};
+        protected ${attr?trim};
     </#list>
 
     <#list nonBindAttr as attr>
-        protected ${attr};
+        protected ${attr?trim};
     </#list>
 
     public void copyFrom(${vmClass} objectToCopy){
         <#list bindAttr as attr>
-            <#assign attrBlankIndex=attr?index_of(' ')/>
-            <#assign attrType=attr?substring(0, attrBlankIndex)/>
-            <#assign attrName=attr?substring(attrBlankIndex+1, attr?length)?trim/>
+            <#assign attrTrimmed=attr?trim/>
+            <#assign attrBlankIndex=attrTrimmed?index_of(' ')/>
+            <#assign attrType=attrTrimmed?substring(0, attrBlankIndex)/>
+            <#assign attrName=attrTrimmed?substring(attrBlankIndex+1, attrTrimmed?length)/>
             <#assign attrNameCaps=attrName?cap_first/>
             this.${attrName} = objectToCopy.get${attrNameCaps}();
         </#list>
         <#list nonBindAttr as attr>
-            <#assign attrBlankIndex=attr?index_of(' ')/>
-            <#assign attrType=attr?substring(0, attrBlankIndex)/>
-            <#assign attrName=attr?substring(attrBlankIndex+1, attr?length)?trim/>
+            <#assign attrTrimmed=attr?trim/>
+            <#assign attrBlankIndex=attrTrimmed?index_of(' ')/>
+            <#assign attrType=attrTrimmed?substring(0, attrBlankIndex)/>
+            <#assign attrName=attrTrimmed?substring(attrBlankIndex+1, attrTrimmed?length)/>
             <#assign attrNameCaps=attrName?cap_first/>
             this.${attrName} = objectToCopy.get${attrNameCaps}();
         </#list>
     }
     //setter-getter
     <#list bindAttr as attr>
-        <#assign attrBlankIndex=attr?index_of(' ')/>
-        <#assign attrType=attr?substring(0, attrBlankIndex)/>
-        <#assign attrName=attr?substring(attrBlankIndex+1, attr?length)?trim/>
+        <#assign attrTrimmed=attr?trim/>
+        <#assign attrBlankIndex=attrTrimmed?index_of(' ')/>
+        <#assign attrType=attrTrimmed?substring(0, attrBlankIndex)/>
+        <#assign attrName=attrTrimmed?substring(attrBlankIndex+1, attrTrimmed?length)/>
         <#assign attrNameCaps=attrName?cap_first/>
         public void set${attrNameCaps}(${attrType} ${attrName}){
             this.${attrName} = ${attrName};
@@ -55,9 +58,10 @@ public class ${vmClass} extends BaseViewModel{
 
     </#list>
     <#list nonBindAttr as attr>
-        <#assign attrBlankIndex=attr?index_of(' ')/>
-        <#assign attrType=attr?substring(0, attrBlankIndex)/>
-        <#assign attrName=attr?substring(attrBlankIndex+1, attr?length)?trim/>
+        <#assign attrTrimmed=attr?trim/>
+        <#assign attrBlankIndex=attrTrimmed?index_of(' ')/>
+        <#assign attrType=attrTrimmed?substring(0, attrBlankIndex)/>
+        <#assign attrName=attrTrimmed?substring(attrBlankIndex+1, attrTrimmed?length)/>
         <#assign attrNameCaps=attrName?cap_first/>
         public void set${attrNameCaps}(${attrType} ${attrName}){
             this.${attrName} = ${attrName};

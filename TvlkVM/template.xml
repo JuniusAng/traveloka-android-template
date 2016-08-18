@@ -28,15 +28,15 @@
         type="string"
         constraints=""
         default="String name; String password"
-        help="will add bindable annotation, separate each attribute with '; ' ex String name; int x; View v;" />
+        help="Will add bindable annotation, separate each attribute with '; ' ex String name; int x; View v;" />
 
     <parameter
         id="vmNonBindableAttr"
         name="ViewModel Non Bindable Attribute"
         type="string"
-        constraints="unique"
+        constraints=""
         default="boolean isNonBindable; boolean isOkay"
-        help="separate each attribute with '; ' ex String name; int x; View v;" />
+        help="Separate each attribute with '; ' ex String name; int x; View v;" />
     <globals file="globals.xml.ftl" />
     <execute file="recipe.xml.ftl" />
 

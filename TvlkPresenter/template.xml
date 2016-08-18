@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<template
+    format="1"
+    revision="1"
+    name="Traveloka V3 Presenter"
+    description="Creates a new Presenter that automatically generated needed component.">
+
+    <category value="!Traveloka" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <parameter
+        id="pClass"
+        name="Presenter Class"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="MyPresenter"
+        help="By convention, should end in 'Presenter'" />
+
+    <parameter
+        id="vm"
+        name="ViewModel"
+        type="string"
+        constraints="class|exists|empty"
+        default=""
+        help="Select related viewmodel" />
+
+    <parameter
+        id="iExtract"
+        name="Extract Interface?"
+        type="boolean"
+        default="false"
+        help="If checked, presenter can be referenced as implementation" />
+
+    <parameter
+        id="iName"
+        name="Interface Name"
+        type="string"
+        default=""
+        suggest="${pClass}Contract"
+        visibility="iExtract"
+        help="Interface name, or as known as contract in previous architecture"/>
+
+    <parameter
+        id="pBase"
+        name="Base Presenter Class"
+        type="enum"
+        default="normal"
+        help="Choose the parent presenter Class, can be BasePresenter or BaseToolbarPresenter">
+        <option id="normal">BasePresenter</option>
+        <option id="toolbar">BaseToolbarPresenter, handling toolbar action</option>
+    </parameter>
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+</template>
