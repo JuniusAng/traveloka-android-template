@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<template
+    format="1"
+    revision="1"
+    name="Traveloka V3 View Model"
+    description="Creates a new viewmodel that extends BaseViewModel and integrated with parceler.">
+
+    <category value="!Traveloka" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <parameter
+        id="vmClass"
+        name="ViewModel Class"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="MyViewModel"
+        help="By convention, should end in 'ViewModel'" />
+
+    <parameter
+        id="vmBindableAttr"
+        name="ViewModel Bindable Attribute"
+        type="string"
+        constraints=""
+        default="String name; String password"
+        help="will add bindable annotation, separate each attribute with '; ' ex String name; int x; View v;" />
+
+    <parameter
+        id="vmNonBindableAttr"
+        name="ViewModel Non Bindable Attribute"
+        type="string"
+        constraints="unique"
+        default="boolean isNonBindable; boolean isOkay"
+        help="separate each attribute with '; ' ex String name; int x; View v;" />
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
