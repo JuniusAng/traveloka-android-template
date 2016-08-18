@@ -18,4 +18,5 @@ public class ${vmClass} extends ${pBase}<${vm}>{
     }
 
     //presenter method
+    //add comment here
 }
