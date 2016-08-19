@@ -16,11 +16,11 @@
 
     <parameter
         id="pClass"
-        name="Presenter Class"
+        name="Presenter Class Name"
         type="string"
         constraints="class|unique|nonempty"
-        default="MyPresenter"
-        help="By convention, should end in 'Presenter'" />
+        suggest="Login"
+        help="By convention, it will automatically add 'Presenter' as suffix" />
 
     <parameter
         id="vm"
@@ -28,6 +28,7 @@
         type="string"
         constraints="class|exists|empty"
         default=""
+        suggest="${pClass}ViewModel"
         help="Select related viewmodel" />
 
     <parameter
@@ -38,23 +39,31 @@
         help="If checked, presenter can be referenced as implementation" />
 
     <parameter
-        id="iName"
+        id="iClass"
         name="Interface Name"
         type="string"
         default=""
-        suggest="${pClass}Contract"
+        suggest="${pClass}PresenterContract"
         visibility="iExtract"
         help="Interface name, or as known as contract in previous architecture"/>
+
+    <parameter
+        id="iMethod"
+        name="Interface method(s)"
+        type="string"
+        default="void doLogin(); String getLoggedUser(); boolean doLogOut()"
+        help="Optional method, separate by ';' ex: void doLogin(); String getLoggedUser(); boolean doLogOut()"/>
 
     <parameter
         id="pBase"
         name="Base Presenter Class"
         type="enum"
-        default="normal"
+        default="BasePresenter"
         help="Choose the parent presenter Class, can be BasePresenter or BaseToolbarPresenter">
-        <option id="normal">BasePresenter</option>
-        <option id="toolbar">BaseToolbarPresenter, handling toolbar action</option>
+        <option id="BasePresenter">BasePresenter</option>
+        <option id="BaseToolbarPresenter">BaseToolbarPresenter, handling toolbar action</option>
     </parameter>
+
     <globals file="globals.xml.ftl" />
     <execute file="recipe.xml.ftl" />
 </template>
