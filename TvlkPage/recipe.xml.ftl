@@ -1,28 +1,23 @@
 <?xml version="1.0"?>
 <recipe>
+    <#if pageType?string == 'activity'>
+        <instantiate from="src/app_package/CustomActivity.java.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/${featureName}Activity.java" />  
+    <#elseif pageType?string == 'dialog'>
 
-    <#if appCompat><dependency mavenUrl="com.android.support:appcompat-v7:19.+"/></#if>
+    <#elseif pageType?string == 'view'>
+    <#elseif pageType?string == 'movethis'>
+    	<instantiate from="src/app_package/CustomViewModel.java.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/${vmClass}.java" />
 
-    <merge from="AndroidManifest.xml.ftl"
-             to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
+        <open file="${escapeXmlAttribute(srcOut)}/${vmClass}.java" />  
 
-    <instantiate from="res/menu/main.xml.ftl"
-            to="${escapeXmlAttribute(resOut)}/menu/${menuName}.xml" />
-
-    <merge from="res/values/strings.xml.ftl"
-             to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
-
-    <merge from="res/values/dimens.xml.ftl"
-             to="${escapeXmlAttribute(resOut)}/values/dimens.xml" />
-    <merge from="res/values-w820dp/dimens.xml"
-             to="${escapeXmlAttribute(resOut)}/values-w820dp/dimens.xml" />
-
-    <instantiate from="res/layout/activity_simple.xml.ftl"
-                   to="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
-
-    <instantiate from="src/app_package/SimpleActivity.java.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
-
-    <open file="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
-    <open file="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
+    	<instantiate from="src/app_package/CustomPresenter.java.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/${pClass}.java" />
+   		 <#if isExtract>
+		<instantiate from="src/app_package/CustomInterface.java.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/${iClass}.java" />
+	</#if>
+    </#if>
+    
 </recipe>

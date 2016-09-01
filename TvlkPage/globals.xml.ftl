@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
 <globals>
-    <global id="manifestOut" value="${manifestDir}" />
-    <global id="appCompat" type="boolean" value="${(minApiLevel lt 14)?string}" />
     <!-- e.g. getSupportActionBar vs. getActionBar -->
-    <global id="Support" value="${(minApiLevel lt 14)?string('Support','')}" />
-    <global id="srcOut" value="${srcDir}/${slashedPackageName(packName)}" />
-    <global id="resOut" value="${resDir}" />
-    <!-- <global id="menuName" value="${classToResource(activityClass)}" /> -->
-    <global id="relativePackage" value="<#if relativePackage?has_content>${relativePackage}<#else>${packName}</#if>" />
+    <#assign aDateTime = .now>
+	<#assign aDate = aDateTime?date>
 
-    <global id="missionTeam" value="${missionTeam}"/>
-    <global id="packName" value="${packName}"/>
-    <global id="featureType" value="${featureType}"/>
-    <global id="featureName" value="${featureName}"/>
+	<global id="DATE" value="${aDate?iso_utc}"/>
+    <global id="srcOut" value="${srcDir}/${slashedPackageName(packName)}" />
+    <global id="pageType" value="${pageType}"/>
+    <global id="pageName" value="${pageName}"/> 
+    <global id="featureName" value="${nameFeature?cap_first}"/>
+    <global id="pClass" value="${camelCaseToUnderscore(pClass)}" />
+    <global id="vmClass" value="${camelCaseToUnderscore(vmClass)}" />
+    <global id="isExtract" type="boolean" value="${iExtract?string}"/>
+    <global id="isOverrideDelegate" type="boolean" value="${coreComponent?string}"/>
+    <global id="pBase" value="BasePresenter" />
 </globals>

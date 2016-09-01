@@ -1,14 +1,11 @@
 <?xml version="1.0"?>
 <template
-    format="4"
-    revision="2"
+    format="1"
+    revision="1"
     name="Traveloka V3 Page"
-    minApi="15"
-    minBuildApi="15"
     description="Creates new page">
 
     <category value="!Traveloka" />
-    <formfactor value="Mobile" />
 
     <parameter
         id="missionTeam"
@@ -25,10 +22,12 @@
         <option id="columbus">columbus</option>
         <option id="train">train</option>
     </parameter>
-    
+
     <parameter
         id="nameFeature"
         name="Feature Name"
+        constraints="nonempty"
+        suggest="Testing"
         type="string"
         help="Name of the feature(will act as package), if you haven't created one, this will generate it also. ex like Reschedule, PriceAlert" />
 
@@ -72,7 +71,7 @@
         type="string"
         constraints=""
         suggest="String name; String password"
-        help="Will add bindable annotation, separate each attribute with '; ' ex String name; int x; View v;" />
+        help="Will add bindable annotation, SEPARATE each attribute with '; ' ex String name; int x; View v" />
 
     <parameter
         id="vmNonBindableAttr"
@@ -80,7 +79,7 @@
         type="string"
         constraints=""
         suggest="boolean isNonBindable; boolean isOkay"
-        help="Separate each attribute with '; ' ex String name; int x; View v" />
+        help="SEPARATE each attribute with '; ' ex String name; int x; View v" />
 
     <parameter
         id="pClass"
@@ -94,7 +93,7 @@
         name="Extract Interface?"
         type="boolean"
         default="false"
-        help="If checked, presenter can be referenced as implementation" />
+        help="If checked, presenter can be referenced as implementation, if not checked will let presenter to be accessed directly" />
 
     <parameter
         id="iClass"
@@ -111,12 +110,49 @@
         suggest="void doLogin(); String getLoggedUser(); boolean doLogOut()"
         help="Optional method, separate by ';' ex: void doLogin(); String getLoggedUser(); boolean doLogOut()"/>
 
+    <parameter
+        id="coreComponent"
+        name="Override default-toolbar-only core component implementation"
+        type="boolean"
+        default="false"
+        help="If checked, you can generate code for core component implementation, like custom appbar behavior" />
+
+    <parameter
+        id="coreToolbar"
+        name="Toolbar"
+        type="enum"
+        default="use"
+        help="What implementation for toolbar, just change the declaration for more complete action of Toolbar"
+        visibility="coreComponent">
+        <option id="use">Use default toolbar</option>
+        <option id="nouse">Do not use toolbar</option>
+        <option id="collapsing">Toolbar inside collapsing toolbar</option>
+    </parameter>
+
+    <parameter
+        id="coreFAB"
+        name="FAB"
+        type="enum"
+        default="nouse"
+        help="What implementation for FAB, just change the declaration for more complete action of FAB"
+        visibility="coreComponent">
+        <option id="use">Use default FAB (bottom, right)</option>
+        <option id="nouse">Do not use FAB</option>
+        <option id="appbar">FAB anchored to appbar</option>
+    </parameter>
+
+    <parameter
+        id="coreTab"
+        name="TabLayout"
+        type="enum"
+        default="nouse"
+        help="What implementation for TabLayout, just change the declaration for more complete action of TabLayout"
+        visibility="coreComponent">
+        <option id="use">Use default TAB</option>
+        <option id="nouse">Do not use TAB</option>
+    </parameter>
     <!-- 128x128 thumbnails relative to template.xml -->
-    <thumbs>
-        <!-- default thumbnail is required -->
-        <thumb>template_blank_activity.png</thumb>
-    </thumbs>
     <globals file="globals.xml.ftl" />
-    <execute file="template1.xml" />
+    <execute file="recipe.xml.ftl" />
 
 </template>

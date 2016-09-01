@@ -23,7 +23,7 @@
         help="By convention, it will automatically add 'Presenter' as suffix" />
 
     <parameter
-        id="vm"
+        id="vmClass"
         name="ViewModel"
         type="string"
         constraints="class|exists|empty"

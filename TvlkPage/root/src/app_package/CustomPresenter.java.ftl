@@ -1,6 +1,6 @@
 package ${packageName};
 
-public class ${pClass}Presenter extends ${pBase}<${vmClass}> <#if isExtract>implements ${iClass}</#if>{
+public class ${pClass} extends ${pBase}<${vmClass}> <#if isExtract>implements ${iClass}</#if>{
 
     @Override
     public void onCreate(Bundle presenterState) {
