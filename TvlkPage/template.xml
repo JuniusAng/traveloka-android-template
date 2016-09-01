@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<template
+    format="4"
+    revision="2"
+    name="Traveloka V3 Page"
+    minApi="15"
+    minBuildApi="15"
+    description="Creates new page">
+
+    <category value="!Traveloka" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="missionTeam"
+        name="Mission Team"
+        type="enum"
+        default="none"
+        help="The name of the activity class to create" >
+        <option id="none">none</option>
+        <option id="flight">flight</option>
+        <option id="hotel">hotel</option>
+        <option id="user">user</option>
+        <option id="payment">payment</option>
+        <option id="bell">bell</option>
+        <option id="columbus">columbus</option>
+        <option id="train">train</option>
+    </parameter>
+    
+    <parameter
+        id="nameFeature"
+        name="Feature Name"
+        type="string"
+        help="Name of the feature(will act as package), if you haven't created one, this will generate it also. ex like Reschedule, PriceAlert" />
+
+    <parameter
+        id="packName"
+        name="package name"
+        type="string"
+        suggest="com.traveloka.android.${missionTeam?string}.${nameFeature}"
+        default="com.traveloka.android" />
+
+    <parameter
+        id="pageType"
+        name="Type of Page"
+        type="enum"
+        default="activity"
+        help="Choose the type of page you are developing, activity, dialog, or custom view">
+        <option id="activity">activity</option>
+        <option id="dialog">dialog</option>
+        <option id="view">custom view</option>
+    </parameter>
+
+    <parameter
+        id="pageName"
+        name="Page Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="Login"
+        help="Generated VM and presenter will use this name, ex name is Login, then vm is LoginViewModel" />
+
+    <parameter
+        id="vmClass"
+        name="ViewModel Class"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${pageName}ViewModel"
+        help="By convention, should end with 'ViewModel'" />
+
+    <parameter
+        id="vmBindableAttr"
+        name="ViewModel Bindable Attribute"
+        type="string"
+        constraints=""
+        suggest="String name; String password"
+        help="Will add bindable annotation, separate each attribute with '; ' ex String name; int x; View v;" />
+
+    <parameter
+        id="vmNonBindableAttr"
+        name="ViewModel Non Bindable Attribute"
+        type="string"
+        constraints=""
+        suggest="boolean isNonBindable; boolean isOkay"
+        help="Separate each attribute with '; ' ex String name; int x; View v" />
+
+    <parameter
+        id="pClass"
+        name="Presenter Class Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${pageName}Presenter"/>
+
+    <parameter
+        id="iExtract"
+        name="Extract Interface?"
+        type="boolean"
+        default="false"
+        help="If checked, presenter can be referenced as implementation" />
+
+    <parameter
+        id="iClass"
+        name="Interface Name"
+        type="string"
+        suggest="${pClass}Contract"
+        visibility="iExtract"
+        help="Interface name, or as known as contract in previous architecture"/>
+
+    <parameter
+        id="iMethod"
+        name="Interface method(s)"
+        type="string"
+        suggest="void doLogin(); String getLoggedUser(); boolean doLogOut()"
+        help="Optional method, separate by ';' ex: void doLogin(); String getLoggedUser(); boolean doLogOut()"/>
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+    <globals file="globals.xml.ftl" />
+    <execute file="template1.xml" />
+
+</template>

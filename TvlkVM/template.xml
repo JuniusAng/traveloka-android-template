@@ -12,7 +12,7 @@
         name="Package name"
         type="string"
         constraints="package"
-        default="com.mycompany.myapp" />
+        default="com.traveloka.android.mission" />
 
     <parameter
         id="vmClass"
@@ -20,7 +20,7 @@
         type="string"
         constraints="class|unique|nonempty"
         default="MyViewModel"
-        help="By convention, should end in 'ViewModel'" />
+        help="By convention, should end with 'ViewModel'" />
 
     <parameter
         id="vmBindableAttr"
