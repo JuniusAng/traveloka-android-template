@@ -3,7 +3,7 @@
     <!-- e.g. getSupportActionBar vs. getActionBar -->
     <#assign aDateTime = .now>
 	<#assign aDate = aDateTime?date>
-
+	<global id="relativePackage" value="<#if relativePackage?has_content>${relativePackage}<#else>${packageName}</#if>" />
 	<global id="DATE" value="${aDate?string["MM/dd/yyyy"]}"/>
     <global id="srcOut" value="${srcDir}/${slashedPackageName(packName)}" />
     <global id="pageType" value="${pageType}"/>
