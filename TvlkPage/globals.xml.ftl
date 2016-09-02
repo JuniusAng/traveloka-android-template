@@ -4,7 +4,7 @@
     <#assign aDateTime = .now>
 	<#assign aDate = aDateTime?date>
 
-	<global id="DATE" value="${aDate?iso_utc}"/>
+	<global id="DATE" value="${aDate?string["MM/dd/yyyy"]}"/>
     <global id="srcOut" value="${srcDir}/${slashedPackageName(packName)}" />
     <global id="pageType" value="${pageType}"/>
     <global id="pageName" value="${pageName}"/> 
@@ -14,4 +14,6 @@
     <global id="isExtract" type="boolean" value="${iExtract?string}"/>
     <global id="isOverrideDelegate" type="boolean" value="${coreComponent?string}"/>
     <global id="pBase" value="BasePresenter" />
+    <global id="layoutName" value="activity_${missionTeam}_${camelCaseToUnderscore(nameFeature)}"/>
+    <global id="bindingName" value="Activity${missionTeam?cap_first}${nameFeature?cap_first}Binding"/>
 </globals>

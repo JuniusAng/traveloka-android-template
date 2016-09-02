@@ -3,6 +3,7 @@
     <#if pageType?string == 'activity'>
         <instantiate from="src/app_package/CustomActivity.java.ftl"
                    to="${escapeXmlAttribute(srcOut)}/${featureName}Activity.java" />  
+       <open file="${escapeXmlAttribute(srcOut)}/${featureName}Activity.java"/>
     <#elseif pageType?string == 'dialog'>
 
     <#elseif pageType?string == 'view'>
