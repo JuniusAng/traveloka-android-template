@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--the container in base layout that we inflate this layout into, is a nested scroll view, it is cool to add another scrollview though, but let's do not-->
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto">
