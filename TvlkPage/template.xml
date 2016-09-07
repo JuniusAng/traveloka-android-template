@@ -35,8 +35,8 @@
         id="packName"
         name="package name"
         type="string"
-        suggest="com.traveloka.android.${missionTeam?string}.${nameFeature}"
-        default="com.traveloka.android" />
+        suggest="com.traveloka.android.mvp.${missionTeam?string}.${nameFeature?lower_case}"
+        default="com.traveloka.android.mvp" />
 
     <parameter
         id="pageType"

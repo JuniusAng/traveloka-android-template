@@ -1,5 +1,8 @@
-package ${packageName};
+package ${packNameNew};
 
+/**
+ * Created by template generator on ${DATE}.
+ */
 public class ${pClass} extends ${pBase}<${vmClass}> <#if isExtract>implements ${iClass}</#if>{
 
     @Override

@@ -1,4 +1,4 @@
-package ${packageName};
+package ${packName};
 
 public class ${pClass}Presenter extends ${pBase}<${vmClass}> <#if isExtract>implements ${iClass}</#if>{
 

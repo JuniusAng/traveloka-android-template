@@ -1,4 +1,4 @@
-package ${packageName};
+package ${packNameNew};
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.view.View;
 import ${applicationPackage}.R;
 </#if>
 /**
- * Created by junius.ang on ${DATE}.
+ * Created by template generator on ${DATE}.
  */
 public class ${featureName}Dialog extends BaseDialog<${pClass}, ${vmClass}> implements View.OnClickListener{
     private ${bindingName} mBinding;

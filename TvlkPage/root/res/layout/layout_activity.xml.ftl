@@ -6,14 +6,14 @@
     <data>
     	<variable
 	        name="viewModel"
-	        type="${packageName}.${vmClass}" />
+	        type="${packNameNew}.${vmClass}" />
     </data>
 	<LinearLayout
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:orientation="vertical"
 	    android:padding="@dimen/common_dp_16"
-	    tools:context="${packageName}.${featureName}Activity">
+	    tools:context="${packNameNew}.${featureName}Activity">
 
 	</LinearLayout>
 

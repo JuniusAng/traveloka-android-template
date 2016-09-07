@@ -1,14 +1,13 @@
-package ${packageName};
-
+package ${packNameNew};
 import android.os.Bundle;
 import android.view.View;
 <#if applicationPackage??>
 import ${applicationPackage}.R;
 </#if>
 /**
- * Created by junius.ang on ${DATE}.
+ * Created by template generator on ${DATE}.
  */
-public class ${featureName}Activity extends BaseActivity<${pClass}, ${vmClass}> implements View.OnClickListener{
+ public class ${pageName?cap_first}Activity extends BaseActivity<${pClass}, ${vmClass}> implements View.OnClickListener{
     private ${bindingName} mBinding;
 
     @Override

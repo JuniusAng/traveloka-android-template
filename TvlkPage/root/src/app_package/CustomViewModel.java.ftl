@@ -1,4 +1,4 @@
-package ${packageName};
+package ${packNameNew};
 
 import android.databinding.Bindable;
 import org.greenfroyo.androidmvp_bind.app._core.BaseViewModel;
@@ -6,8 +6,9 @@ import org.greenfroyo.androidmvp_bind.app._core.BaseViewModel;
 import ${applicationPackage}.R;
 import ${applicationPackage}.BR;
 </#if>
-/**
- * TODO: document your custom view model class.
+
+ /**
+ * Created by template generator on ${DATE}.
  */
 public class ${vmClass} extends BaseViewModel{
     <#assign bindAttr=vmBindableAttr?split(";")/>
