@@ -27,6 +27,6 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------  
-
-mkdir "C:\Program Files\Android\Android Studio\plugins\android\lib\templates\activities\TvlkTest\"
-xcopy "%cd%\TvlkPage" "C:\Program Files\Android\Android Studio\plugins\android\lib\templates\activities\TvlkTest\" /E
+if exist "C:\Program Files\Android\Android Studio\plugins\android\lib\templates\activities\TvlkPage\" del "C:\Program Files\Android\Android Studio\plugins\android\lib\templates\activities\TvlkPage\"
+mkdir "C:\Program Files\Android\Android Studio\plugins\android\lib\templates\activities\TvlkPage\"
+xcopy "%cd%\TvlkPage" "C:\Program Files\Android\Android Studio\plugins\android\lib\templates\activities\TvlkPage\" /E
