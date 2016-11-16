@@ -1,3 +1,2 @@
-rm -rf "/Applications/android\ Studio.app/Contents/plugins/android/lib/templates/activities/TvlkPage"
-mkdir "/Applications/android\ Studio.app/Contents/plugins/android/lib/templates/activities/TvlkPage"
-cp -r ${PWD}/TvlkPage "/Applications/android\ Studio.app/Contents/plugins/android/lib/templates/activities/"
+rm -rf "/applications/Android Studio.app/Contents/plugins/android/lib/templates/activities/TvlkPage"
+cp -r ${PWD}/TvlkPage "/applications/Android Studio.app/Contents/plugins/android/lib/templates/activities/"
